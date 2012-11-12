@@ -1,3 +1,24 @@
+Data workshop
+=============
+
+Unix text tools overview
+------------------------
+
+I highly recommend spending some time with Kenneth Ward Church's classic
+[Unix for Poets](http://ufal.mff.cuni.cz/~hladka/tutorial/UnixforPoets.pdf).
+
+Today we'll be using the following:
+
+ * `grep`
+ * `tr`
+ * `sed`
+
+And the following, but you don't need to worry about them as much for now:
+
+ * `cut`
+ * `sort`
+ * `uniq`
+
 Named Entity Recognition
 ------------------------
 
@@ -28,9 +49,7 @@ for many components for other languages.
 
 I'll download several of the works of George Berkeley as examples:
 
-    cd ..
-    mkdir texts
-    cd texts
+    cd ../texts
     curl -A "Mozilla/4.0" -O http://www.gutenberg.org/cache/epub/4722/pg4722.txt
     curl -A "Mozilla/4.0" -O http://www.gutenberg.org/cache/epub/31848/pg31848.txt
     curl -A "Mozilla/4.0" -O http://www.gutenberg.org/cache/epub/4543/pg4543.txt
@@ -120,4 +139,26 @@ Not perfect, but not too bad for a quick experiment. We can find place names sim
 
 Note that I've combined all the steps into a single pipeline and have grouped and counted
 the results.
+
+Topic Modeling
+--------------
+
+Next we'll download and unzip [MALLET](http://mallet.cs.umass.edu/):
+
+    curl -O http://mallet.cs.umass.edu/dist/mallet-2.0.6.tar.gz
+    tar zxvf mallet-2.0.6.tar.gz
+
+Now we import these into MALLET's binary format:
+
+    mallet-2.0.6/bin/mallet import-dir \
+      --input texts/[1-2]* --output mh.mallet \
+      --keep-sequence  --remove-stopwords
+
+And now we can learn a model:
+
+    mallet-2.0.6/bin/mallet train-topics --num-threads 2 \
+      --input mh.mallet --num-topics 30 --optimize-interval 10 \
+      --output-topic-keys mh-30-keys.txt --output-model mh-30.model
+
+
 
