@@ -94,7 +94,7 @@ since there may be multiple entities in a line, or entities that span line break
 Now we can `grep`:
 
     egrep -o '<START:person>[^<]+' people-02.txt | \
-      cut -f 2 -d '>' | cut -f 1 -d '<' | grep -v '^_$'
+      cut -f 2 -d '>' | cut -f 1 -d '<' | grep -v '_'
 
 Which gives us this:
 
