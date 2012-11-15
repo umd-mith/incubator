@@ -49,7 +49,9 @@ for many components for other languages.
 
 I'll download several of the works of George Berkeley as examples:
 
-    cd ../texts
+    cd ..
+    mkdir texts
+    cd texts
     curl -A "Mozilla/4.0" -O http://www.gutenberg.org/cache/epub/4722/pg4722.txt
     curl -A "Mozilla/4.0" -O http://www.gutenberg.org/cache/epub/31848/pg31848.txt
     curl -A "Mozilla/4.0" -O http://www.gutenberg.org/cache/epub/4543/pg4543.txt
