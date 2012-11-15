@@ -150,7 +150,7 @@ Next we'll download and unzip [MALLET](http://mallet.cs.umass.edu/):
     
 And download some sample texts (note that this step isn't necessary if you've checked out this repository):
 
-    curl -O https://github.com/downloads/umd-mith/incubator/texts.tgz
+    curl -L -O https://github.com/downloads/umd-mith/incubator/texts.tgz
     tar zxvf texts.tgz
 
 Now we import these into MALLET's binary format:
