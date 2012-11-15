@@ -147,6 +147,11 @@ Next we'll download and unzip [MALLET](http://mallet.cs.umass.edu/):
 
     curl -O http://mallet.cs.umass.edu/dist/mallet-2.0.6.tar.gz
     tar zxvf mallet-2.0.6.tar.gz
+    
+And download some sample texts (note that this step isn't necessary if you've checked out this repository):
+
+    curl -O https://github.com/downloads/umd-mith/incubator/texts.tgz
+    tar zxvf texts.tgz
 
 Now we import these into MALLET's binary format:
 
