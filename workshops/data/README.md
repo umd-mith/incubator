@@ -72,14 +72,14 @@ We need to strip the Gutenberg footer and header:
 Now we can break into sentences and tokenize:
 
     cd ..
-    apache-opennlp-1.5.2-incubating/bin/opennlp \
+    tools/apache-opennlp-1.5.2-incubating/bin/opennlp \
       SentenceDetector models/en-sent.bin < texts/berkeley-01.txt | \
       apache-opennlp-1.5.2-incubating/bin/opennlp \
       TokenizerME models/en-token.bin > texts/berkeley-01-tokenized.txt
 
 Now we can find person names:
 
-    apache-opennlp-1.5.2-incubating/bin/opennlp \
+    tools/apache-opennlp-1.5.2-incubating/bin/opennlp \
       TokenNameFinder models/en-ner-person.bin \
       < texts/berkeley-01-tokenized.txt > people-01.txt
 
@@ -133,7 +133,7 @@ Which gives us this:
 
 Not perfect, but not too bad for a quick experiment. We can find place names similarly:
 
-    apache-opennlp-1.5.2-incubating/bin/opennlp \
+    tools/apache-opennlp-1.5.2-incubating/bin/opennlp \
       TokenNameFinder models/en-ner-location.bin < texts/berkeley-01-tokenized.txt | \
       tr '\n' ' ' | sed 's/<END>/<END>\n/g' | \
       egrep -o '<START:location>[^<]+' | cut -f 2 -d '>' | cut -f 1 -d '<' | \
