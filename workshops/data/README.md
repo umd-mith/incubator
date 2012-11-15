@@ -63,9 +63,9 @@ but we are human users (just ones who are using an alternative browser), so I'm 
 to assume this is kosher. Just don't do it in large batches.
 
 We'll start with "A Proposal for the Better Supplying of Churches in Our Foreign Plantations".
-We need to strip the Gutenberg footer:
+We need to strip the Gutenberg footer and header:
 
-    head -n 780 pg31848.txt > berkeley-01.txt
+    head -n 780 pg31848.txt | tail -n 747 > berkeley-01.txt
 
 Now we can break into sentences and tokenize:
 
