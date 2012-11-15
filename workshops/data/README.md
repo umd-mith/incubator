@@ -74,7 +74,7 @@ Now we can break into sentences and tokenize:
     cd ..
     tools/apache-opennlp-1.5.2-incubating/bin/opennlp \
       SentenceDetector models/en-sent.bin < texts/berkeley-01.txt | \
-      apache-opennlp-1.5.2-incubating/bin/opennlp \
+      tools/apache-opennlp-1.5.2-incubating/bin/opennlp \
       TokenizerME models/en-token.bin > texts/berkeley-01-tokenized.txt
 
 Now we can find person names:
